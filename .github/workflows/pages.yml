@@ -22,18 +22,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Install dependencies
+        run: cd docs && npm install
+
       - name: Build documentation
-        run: |
-          mkdir -p docs/site
-          echo "Documentation placeholder" > docs/site/index.html
+        run: cd docs && npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: 'docs/site'
+          path: 'docs/dist'
 
   deploy:
     environment:
