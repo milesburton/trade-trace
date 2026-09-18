@@ -11,6 +11,8 @@ node_modules
 /dist
 /dist-electron
 /build
+frontend/dist/
+docs/dist/
 
 # Misc
 .DS_Store
