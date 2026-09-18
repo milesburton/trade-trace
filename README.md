@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/src/assets/logo-light.svg" alt="Trade Trace Logo" width="200" height="200" style="border-radius: 12px; margin-bottom: 20px;">
+</p>
+
 # Trade Trace
 
 > **Overall:** [![Trade Trace test coverage](https://img.shields.io/badge/coverage-pending-lightgrey)](https://github.com/milesburton/trade-trace/actions/workflows/ci.yml)

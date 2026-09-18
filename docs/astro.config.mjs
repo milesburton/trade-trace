@@ -8,10 +8,11 @@ export default defineConfig({
       title: 'Trade Trace',
       description: 'Transparent tradesman reviews with blockchain immutability',
       logo: {
-        light: '/src/assets/logo-light.svg',
-        dark: '/src/assets/logo-dark.svg',
+        light: './src/assets/logo-light.svg',
+        dark: './src/assets/logo-dark.svg',
         alt: 'Trade Trace Logo',
       },
+      favicon: './src/assets/favicon.svg',
       social: {
         discord: 'https://discord.gg/tSGgsKnz',
         github: 'https://github.com/milesburton/trade-trace',

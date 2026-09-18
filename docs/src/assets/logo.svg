@@ -1,0 +1,33 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#2563eb" stroke-width="2" opacity="0.1"/>
+
+  <!-- Main icon: Linked blocks representing trades and reviews -->
+  <g>
+    <!-- Left block (Tradesman) -->
+    <rect x="35" y="70" width="40" height="40" rx="4" fill="#2563eb" opacity="0.9"/>
+    <circle cx="55" cy="90" r="8" fill="white"/>
+
+    <!-- Right block (Review) -->
+    <rect x="125" y="70" width="40" height="40" rx="4" fill="#10b981" opacity="0.9"/>
+    <path d="M 140 85 L 145 95 L 155 85" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Connection line (Blockchain) -->
+    <line x1="75" y1="90" x2="125" y2="90" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="100" cy="90" r="3" fill="#2563eb"/>
+
+    <!-- Chain links on connection -->
+    <circle cx="85" cy="90" r="2" fill="#2563eb"/>
+    <circle cx="115" cy="90" r="2" fill="#2563eb"/>
+  </g>
+
+  <!-- Stars at bottom (ratings) -->
+  <g>
+    <path d="M 75 130 L 78 138 L 86 138 L 79 143 L 82 151 L 75 146 L 68 151 L 71 143 L 64 138 L 72 138 Z" fill="#f59e0b" opacity="0.8"/>
+    <path d="M 100 130 L 103 138 L 111 138 L 104 143 L 107 151 L 100 146 L 93 151 L 96 143 L 89 138 L 97 138 Z" fill="#f59e0b" opacity="0.8"/>
+    <path d="M 125 130 L 128 138 L 136 138 L 129 143 L 132 151 L 125 146 L 118 151 L 121 143 L 114 138 L 122 138 Z" fill="#f59e0b" opacity="0.8"/>
+  </g>
+
+  <!-- Text below (optional for smaller versions) -->
+  <text x="100" y="175" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#1e293b" letter-spacing="-0.5">TRADE TRACE</text>
+</svg>

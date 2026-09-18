@@ -1,0 +1,19 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#2563eb" opacity="0.95"/>
+
+  <!-- Main icon: Linked blocks representing trades and reviews -->
+  <g transform="translate(50, 50)">
+    <!-- Left block (Tradesman) -->
+    <rect x="-28" y="-15" width="20" height="20" rx="2" fill="white" opacity="0.95"/>
+    <circle cx="-18" cy="-5" r="4" fill="#2563eb"/>
+
+    <!-- Right block (Review) -->
+    <rect x="8" y="-15" width="20" height="20" rx="2" fill="white" opacity="0.95"/>
+    <path d="M 15 -10 L 18 -2 L 25 -10" stroke="#2563eb" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Connection line -->
+    <line x1="-8" y1="-5" x2="8" y2="-5" stroke="white" stroke-width="1.5"/>
+    <circle cx="0" cy="-5" r="1.5" fill="white"/>
+  </g>
+</svg>
