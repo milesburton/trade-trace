@@ -1,0 +1,68 @@
+{
+  "name": "trade-trace",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "deno run -A npm:@biomejs/biome check src/",
+    "lint:fix": "deno run -A npm:@biomejs/biome check --write src/",
+    "lint:full": "npm run lint && npm run test:coverage",
+    "fallow:audit": "npx fallow audit",
+    "fallow:health": "npx fallow health --score --hotspots",
+    "fallow:dead-code": "npx fallow dead-code",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "NODE_OPTIONS=--max-old-space-size=4096 vitest",
+    "test:coverage": "NODE_OPTIONS=--max-old-space-size=4096 vitest run --coverage",
+    "test:ui": "npx playwright test",
+    "test:ui:headed": "npx playwright test --headed",
+    "prepare": "node -e \"if (!process.env.CI) { require('child_process').execSync('node frontend/node_modules/.bin/husky', {stdio:'inherit', cwd:'..'}) }\""
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "deno run -A npm:@biomejs/biome check --write",
+      "bash -c './node_modules/.bin/tsc --noEmit --skipLibCheck --project tsconfig.json'"
+    ]
+  },
+  "dependencies": {
+    "@preact/signals-react": "^3.9.0",
+    "@reduxjs/toolkit": "^2.11.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hotkeys-hook": "^5.2.4",
+    "react-redux": "^9.2.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.4",
+    "@playwright/test": "^1.58.2",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/coverage-v8": "^4.0.18",
+    "autoprefixer": "^10.4.19",
+    "fallow": "^2.75.0",
+    "husky": "^9.1.7",
+    "jsdom": "^28.1.0",
+    "lint-staged": "^15.2.10",
+    "msw": "^2.12.14",
+    "playwright": "^1.58.2",
+    "postcss": "^8.5.23",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5.5.3",
+    "vite": "^7.3.2",
+    "vitest": "^4.0.18"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  },
+  "overrides": {
+    "tmp": "^0.2.6",
+    "esbuild": "^0.28.1"
+  }
+}
