@@ -24,9 +24,9 @@ export default defineConfig({
         {
           label: 'Start here',
           items: [
-            { label: 'Introduction', slug: 'introduction' },
-            { label: 'Quick start', slug: 'guides/quick-start' },
-            { label: 'Installation', slug: 'guides/installation' },
+            { label: 'Introduction', link: '/introduction/' },
+            { label: 'Quick start', link: '/guides/quick-start/' },
+            { label: 'Installation', link: '/guides/installation/' },
           ],
         },
         {
@@ -34,16 +34,8 @@ export default defineConfig({
           autogenerate: { directory: 'guides' },
         },
         {
-          label: 'Platform',
-          autogenerate: { directory: 'platform' },
-        },
-        {
           label: 'Development',
           autogenerate: { directory: 'development' },
-        },
-        {
-          label: 'API',
-          autogenerate: { directory: 'api' },
         },
       ],
       customCss: ['./src/styles/custom.css'],
