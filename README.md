@@ -20,20 +20,50 @@
 | Security | Secret scanning | [![Secret scan](https://github.com/milesburton/trade-trace/actions/workflows/gitleaks.yml/badge.svg?branch=main)](https://github.com/milesburton/trade-trace/actions/workflows/gitleaks.yml) |
 | Security | Static analysis | [![CodeQL](https://github.com/milesburton/trade-trace/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/milesburton/trade-trace/actions/workflows/codeql.yml) |
 
-A comprehensive trade execution and compliance monitoring platform. Track trades, verify compliance rules, and analyze execution patterns across multiple asset classes.
+A transparent tradesman review platform with blockchain-backed immutability. Submit reviews, build trust networks, and verify tradesman credentials with cryptographic proof.
 
 <p align="center">
   <a href="https://milesburton.github.io/trade-trace/"><strong>Documentation</strong></a>
   &nbsp;&middot;&nbsp;
   <a href="https://milesburton.github.io/trade-trace/guides/quick-start/">Quick start</a>
   &nbsp;&middot;&nbsp;
-  <a href="https://discord.gg/tSGgsKnz">Discord</a>
+  <a href="https://github.com/milesburton/trade-trace/issues">Issues</a>
 </p>
+
+## Live Demo
+
+- **Frontend**: [https://trade-trace-xxx.vercel.app](https://trade-trace-xxx.vercel.app) (Vercel)
+- **API**: [https://api-xxxxx.vercel.app](https://api-xxxxx.vercel.app) (Vercel Functions)
+- **Docs**: [https://milesburton.github.io/trade-trace](https://milesburton.github.io/trade-trace/) (GitHub Pages)
+
+## Architecture
+
+**Full-stack prototype with:**
+- **Frontend**: React 18 + Vite (veta-trading-platform design system)
+- **Backend**: Deno + Oak serverless functions
+- **Database**: PostgreSQL (Neon free tier)
+- **Storage**: Images & videos (Supabase storage)
+- **CI/CD**: GitHub Actions (lint, test, build, deploy)
+
+See [deployment docs](../../VERCEL_SETUP.md) for setup details.
 
 ## Documentation
 
 Full documentation is at **[milesburton.github.io/trade-trace](https://milesburton.github.io/trade-trace/)**, published on every merge to `main`.
 
-## Discord
+## Development
 
-[Join the Discord](https://discord.gg/tSGgsKnz) for release notes and bug submission.
+```bash
+# Frontend
+cd frontend && npm install && npm run dev
+
+# Backend
+cd backend && deno task dev
+
+# Docs
+cd docs && npm install && npm run dev
+```
+
+## Contributing
+
+Issues and PRs welcome. Please see [CONTRIBUTING](CONTRIBUTING.md) for guidelines.

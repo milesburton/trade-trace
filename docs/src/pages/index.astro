@@ -8,21 +8,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trade Trace</title>
     <style>
-      :root {
-        --color-primary: #2563eb;
-        --color-primary-dark: #1e40af;
-        --color-success: #10b981;
-        --color-warning: #f59e0b;
-        --color-slate-50: #f8fafc;
-        --color-slate-100: #f1f5f9;
-        --color-slate-200: #e2e8f0;
-        --color-slate-300: #cbd5e1;
-        --color-slate-400: #94a3b8;
-        --color-slate-500: #64748b;
-        --color-slate-600: #475569;
-        --color-slate-700: #334155;
-        --color-slate-800: #1e293b;
-        --color-slate-900: #0f172a;
+      :root,
+      [data-theme="dark"] {
+        --gray-50: 255 255 255;
+        --gray-100: 241 245 249;
+        --gray-200: 214 224 236;
+        --gray-300: 182 196 212;
+        --gray-400: 152 165 182;
+        --gray-500: 142 156 175;
+        --gray-600: 78 90 106;
+        --gray-700: 52 64 80;
+        --gray-800: 30 41 55;
+        --gray-900: 15 23 38;
+        --gray-950: 3 7 18;
+
+        --semantic-up: 52 211 153;
+        --semantic-down: 248 113 113;
+        --semantic-neutral: 156 163 175;
+        --semantic-maker: 16 185 129;
+        --semantic-taker: 245 158 11;
+
+        --color-primary: rgb(var(--semantic-up));
+        --color-primary-dark: rgb(5 150 105);
+        --color-success: rgb(var(--semantic-up));
+        --color-warning: rgb(var(--semantic-taker));
+      }
+
+      [data-theme="light"] {
+        --gray-950: 248 250 252;
+        --gray-900: 241 245 249;
+        --gray-800: 226 232 240;
+        --gray-700: 203 213 225;
+        --gray-600: 148 163 184;
+        --gray-500: 94 109 128;
+        --gray-400: 71 85 105;
+        --gray-300: 51 65 85;
+        --gray-200: 30 41 59;
+        --gray-100: 15 23 42;
+        --gray-50: 2 6 23;
+
+        --semantic-up: 4 120 87;
+        --semantic-down: 185 28 28;
+        --semantic-neutral: 75 85 99;
+        --semantic-maker: 4 120 87;
+        --semantic-taker: 180 83 9;
+
+        --color-primary: rgb(var(--semantic-up));
+        --color-primary-dark: rgb(4 120 87);
+        --color-success: rgb(var(--semantic-up));
+        --color-warning: rgb(var(--semantic-taker));
       }
 
       @media (prefers-color-scheme: dark) {
@@ -394,16 +428,16 @@
 
     <div class="container">
       <div class="status-bar">
-        <strong>✅ Status:</strong> Production Ready · Version 0.1.0 · Last Updated: 2026-09-19
+        <strong>✅ Status:</strong> Full-Stack Prototype · Frontend Deployed · Docs Live · Last Updated: 2026-09-19
       </div>
     </div>
 
     <section>
       <div class="container">
         <h2 class="section-title">Overview</h2>
-        <p class="section-subtitle">A comprehensive trade execution and compliance monitoring platform</p>
+        <p class="section-subtitle">Transparent tradesman reviews with blockchain immutability</p>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.8; max-width: 800px;">
-          Trade Trace is built on the same professional standards as VETA Trading Platform. Track trades, verify compliance rules, and analyze execution patterns across multiple asset classes with a modern, type-safe React application.
+          Trade Trace is a full-stack prototype for a transparent review platform. Submit reviews, build trust networks, and verify tradesman credentials with cryptographic proof. Built with a modern, type-safe React frontend and Deno backend, styled with the veta-trading-platform design system.
         </p>
       </div>
     </section>
@@ -415,18 +449,18 @@
         <div class="features">
           <div class="feature">
             <div class="feature-icon">🎨</div>
-            <h4>Professional Design</h4>
-            <p>React 18, TypeScript, and Tailwind CSS following VETA standards</p>
+            <h4>Veta Design System</h4>
+            <p>Professional styling with semantic colors and theme support (dark/light/high-contrast)</p>
           </div>
           <div class="feature">
-            <div class="feature-icon">🔒</div>
-            <h4>Type Safe</h4>
-            <p>Full TypeScript strict mode with zero implicit any</p>
+            <div class="feature-icon">⛓️</div>
+            <h4>Blockchain Ready</h4>
+            <p>Architecture supports immutable review records with cryptographic proof</p>
           </div>
           <div class="feature">
             <div class="feature-icon">🚀</div>
-            <h4>Performance</h4>
-            <p>Vite for blazing fast development and production builds</p>
+            <h4>Full-Stack Prototype</h4>
+            <p>Deno backend, React frontend, PostgreSQL database, media storage included</p>
           </div>
           <div class="feature">
             <div class="feature-icon">✅</div>
@@ -435,13 +469,13 @@
           </div>
           <div class="feature">
             <div class="feature-icon">🌓</div>
-            <h4>Dark Mode</h4>
-            <p>Full dark/light theme support with system preference detection</p>
+            <h4>Multi-Theme Support</h4>
+            <p>Dark, light, and high-contrast themes with system preference detection</p>
           </div>
           <div class="feature">
             <div class="feature-icon">🔄</div>
-            <h4>CI/CD Ready</h4>
-            <p>5 GitHub Actions workflows for automated testing and deployment</p>
+            <h4>Auto-Deploy</h4>
+            <p>CI/CD ready: Vercel, Railway, GitHub Pages with auto-deployment on push</p>
           </div>
         </div>
       </div>
@@ -462,27 +496,30 @@
             </ul>
           </div>
           <div class="tech-item">
-            <h4>Testing</h4>
+            <h4>Backend</h4>
             <ul>
-              <li>Vitest 4.0.18</li>
-              <li>Playwright 1.58.2</li>
-              <li>Testing Library</li>
+              <li>Deno runtime</li>
+              <li>Oak framework</li>
+              <li>PostgreSQL driver</li>
+              <li>JWT authentication</li>
             </ul>
           </div>
           <div class="tech-item">
-            <h4>Code Quality</h4>
+            <h4>Database & Storage</h4>
             <ul>
-              <li>Biome 2.4.4</li>
-              <li>TypeScript strict</li>
-              <li>Husky pre-commit</li>
+              <li>PostgreSQL</li>
+              <li>Neon (serverless)</li>
+              <li>Supabase Storage</li>
+              <li>Media support</li>
             </ul>
           </div>
           <div class="tech-item">
-            <h4>DevOps</h4>
+            <h4>DevOps & Deploy</h4>
             <ul>
+              <li>Vercel (frontend/backend)</li>
+              <li>GitHub Pages (docs)</li>
               <li>GitHub Actions</li>
-              <li>GitHub Pages</li>
-              <li>npm 10+</li>
+              <li>Auto-deploy on push</li>
             </ul>
           </div>
         </div>
@@ -511,9 +548,9 @@
     </section>
 
     <footer>
-      <p><strong>Trade Trace</strong> · Comprehensive trade execution and compliance monitoring</p>
-      <p>Version 0.1.0 · Licensed under MIT</p>
-      <p><a href="https://github.com/milesburton/trade-trace">GitHub Repository</a> · <a href="https://discord.gg/tSGgsKnz">Discord Community</a></p>
+      <p><strong>Trade Trace</strong> · Transparent tradesman reviews with blockchain immutability</p>
+      <p>Version 0.1.0 · Licensed under MIT · Full-Stack Prototype</p>
+      <p><a href="https://github.com/milesburton/trade-trace">GitHub Repository</a> · <a href="https://milesburton.github.io/trade-trace/">Documentation</a></p>
     </footer>
   </body>
 </html>
