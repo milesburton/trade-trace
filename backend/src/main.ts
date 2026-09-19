@@ -1,23 +1,20 @@
 import { Application, Router } from "oak";
 import { oakCors } from "cors";
-import { config } from "std/dotenv/mod.ts";
 
 import { setupDatabase } from "./db/setup.ts";
 import { seedDatabase } from "./db/seed.ts";
 import tradesmemRouter from "./routes/tradesmen.ts";
 import reviewsRouter from "./routes/reviews.ts";
 import authRouter from "./routes/auth.ts";
-
-// Load environment variables
-const env = await config();
+import { config } from "./config.ts";
 
 const app = new Application();
-const PORT = Number(env.PORT) || 8000;
+const PORT = config.port;
 
 // CORS middleware
 app.use(
   oakCors({
-    origin: env.FRONTEND_URL || "http://localhost:5173",
+    origin: config.frontend_url,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -71,7 +68,7 @@ try {
   console.log("✅ Database initialized");
 
   // Seed demo data if SEED_DB env var is set
-  if (env.SEED_DB === "true") {
+  if (config.seed_db) {
     await seedDatabase();
   }
 } catch (err) {

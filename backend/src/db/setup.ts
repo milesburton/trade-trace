@@ -1,8 +1,7 @@
 import { Pool } from "postgres";
-import { config } from "std/dotenv/mod.ts";
+import { config } from "../config.ts";
 
-const env = await config();
-const pool = new Pool(env.DATABASE_URL || "postgresql://localhost/trade_trace", 10);
+const pool = new Pool(config.database_url, 10);
 
 export async function setupDatabase() {
   const client = await pool.connect();

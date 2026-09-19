@@ -1,9 +1,8 @@
 import { Context } from "oak";
 import { verify } from "djwt";
-import { config } from "std/dotenv/mod.ts";
+import { config } from "../config.ts";
 
-const env = await config();
-const JWT_SECRET = env.JWT_SECRET || "change-me-in-production";
+const JWT_SECRET = config.jwt_secret;
 
 export interface AuthContext extends Context {
   userId?: string;

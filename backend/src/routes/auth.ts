@@ -1,11 +1,10 @@
 import { Router } from "oak";
 import { hash, compare } from "bcrypt";
 import { create } from "djwt";
-import { config } from "std/dotenv/mod.ts";
+import { config } from "../config.ts";
 import { query } from "../db/setup.ts";
 
-const env = await config();
-const JWT_SECRET = env.JWT_SECRET || "change-me-in-production";
+const JWT_SECRET = config.jwt_secret;
 
 const router = new Router();
 
