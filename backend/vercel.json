@@ -1,0 +1,4 @@
+{
+  "buildCommand": "deno check src/main.ts",
+  "devCommand": "deno run --allow-net --allow-env --allow-read --allow-write --watch src/main.ts"
+}
