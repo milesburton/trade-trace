@@ -1,4 +1,4 @@
 {
-  "buildCommand": "deno check src/main.ts",
-  "devCommand": "deno run --allow-net --allow-env --allow-read --allow-write --watch src/main.ts"
+  "buildCommand": "npm install && npm run check",
+  "devCommand": "npm run dev"
 }
