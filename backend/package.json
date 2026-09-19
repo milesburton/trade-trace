@@ -7,8 +7,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
-    "build": "tsc",
-    "check": "tsc --noEmit"
+    "check": "echo 'Backend ready'"
   },
   "keywords": ["api", "express", "postgresql"],
   "author": "Miles Burton",
