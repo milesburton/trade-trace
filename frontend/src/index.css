@@ -1,38 +1,169 @@
+:root,
+[data-theme="dark"] {
+  --gray-50: 255 255 255;
+  --gray-100: 241 245 249;
+  --gray-200: 214 224 236;
+  --gray-300: 182 196 212;
+  --gray-400: 152 165 182;
+  --gray-500: 142 156 175;
+  --gray-600: 78 90 106;
+  --gray-700: 52 64 80;
+  --gray-800: 30 41 55;
+  --gray-900: 15 23 38;
+  --gray-950: 3 7 18;
+
+  --semantic-up: 52 211 153;
+  --semantic-up-dark: 5 150 105;
+  --semantic-down: 248 113 113;
+  --semantic-down-dark: 220 38 38;
+  --semantic-neutral: 156 163 175;
+  --semantic-maker: 16 185 129;
+  --semantic-taker: 245 158 11;
+  --semantic-status-success: 52 211 153;
+  --semantic-status-pending: 245 158 11;
+  --semantic-status-info: 56 189 248;
+  --semantic-status-critical: 248 113 113;
+  --semantic-status-warning: 249 115 22;
+}
+
+[data-theme="darker"] {
+  --gray-50: 249 250 251;
+  --gray-100: 255 255 255;
+  --gray-200: 229 231 235;
+  --gray-300: 209 213 219;
+  --gray-400: 160 160 160;
+  --gray-500: 130 130 130;
+  --gray-600: 68 68 68;
+  --gray-700: 51 51 51;
+  --gray-800: 17 17 17;
+  --gray-900: 8 8 8;
+  --gray-950: 0 0 0;
+}
+
+[data-theme="light"] {
+  --gray-950: 248 250 252;
+  --gray-900: 241 245 249;
+  --gray-800: 226 232 240;
+  --gray-700: 203 213 225;
+  --gray-600: 148 163 184;
+  --gray-500: 94 109 128;
+  --gray-400: 71 85 105;
+  --gray-300: 51 65 85;
+  --gray-200: 30 41 59;
+  --gray-100: 15 23 42;
+  --gray-50: 2 6 23;
+
+  --semantic-up: 4 120 87;
+  --semantic-up-dark: 4 120 87;
+  --semantic-down: 185 28 28;
+  --semantic-down-dark: 153 27 27;
+  --semantic-neutral: 75 85 99;
+  --semantic-maker: 4 120 87;
+  --semantic-taker: 180 83 9;
+  --semantic-status-success: 4 120 87;
+  --semantic-status-pending: 146 64 14;
+  --semantic-status-info: 3 105 161;
+  --semantic-status-critical: 185 28 28;
+  --semantic-status-warning: 154 52 18;
+}
+
+[data-theme="high-contrast"] {
+  --gray-50: 0 0 0;
+  --gray-100: 0 0 0;
+  --gray-200: 10 10 10;
+  --gray-300: 17 17 17;
+  --gray-400: 51 51 51;
+  --gray-500: 85 85 85;
+  --gray-600: 153 153 153;
+  --gray-700: 204 204 204;
+  --gray-800: 255 255 255;
+  --gray-900: 255 255 255;
+  --gray-950: 245 245 245;
+
+  --semantic-status-success: 4 120 87;
+  --semantic-status-pending: 146 64 14;
+  --semantic-status-info: 3 105 161;
+  --semantic-status-critical: 185 28 28;
+  --semantic-status-warning: 154 52 18;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  color-scheme: light dark;
-}
-
 html {
-  scroll-behavior: smooth;
+  height: 100%;
+  background-color: rgb(var(--gray-950));
 }
 
-body {
-  font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color: rgb(15 23 42 / 1);
-  background-color: rgb(248 250 252 / 1);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body,
+#root {
+  min-height: 100%;
+  background-color: rgb(var(--gray-950));
 }
 
-@media (prefers-color-scheme: dark) {
+html:not([data-theme="high-contrast"]) body,
+html:not([data-theme="high-contrast"]) #root {
+  position: relative;
+}
+
+html:not([data-theme="high-contrast"]) body::before,
+html:not([data-theme="high-contrast"]) #root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, transparent 60%);
+  background-size: 100% 1200px;
+  background-repeat: no-repeat;
+}
+
+@layer base {
   body {
-    color: rgb(248 250 252 / 1);
-    background-color: rgb(15 23 42 / 1);
+    @apply bg-gray-950 text-gray-100 font-mono;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-600 rounded;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+}
+
+@layer utilities {
+  .flash-green {
+    display: inline-block;
+    animation: flashGreen 0.4s ease-out;
+  }
+  .flash-red {
+    display: inline-block;
+    animation: flashRed 0.4s ease-out;
+  }
+}
+
+@keyframes flashGreen {
+  0% {
+    background-color: rgb(52 211 153 / 0.35);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flashRed {
+  0% {
+    background-color: rgb(248 113 113 / 0.35);
+  }
+  100% {
+    background-color: transparent;
   }
 }

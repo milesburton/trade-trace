@@ -24,34 +24,34 @@ export function BlockchainTab() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50">Blockchain Records</h2>
+      <h2 className="text-2xl font-bold text-strong">Blockchain Records</h2>
 
       {isLoading ? (
-        <div className="text-slate-500">Loading...</div>
+        <div className="text-muted">Loading...</div>
       ) : records.length === 0 ? (
-        <div className="text-slate-500">No blockchain records</div>
+        <div className="text-muted">No blockchain records</div>
       ) : (
         <div className="space-y-4">
           {records.map((record) => (
             <div
               key={record.id}
-              className="bg-white rounded-lg shadow p-6 dark:bg-slate-800"
+              className="bg-panel rounded border border-divider p-6"
             >
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-semibold text-slate-900 dark:text-slate-50">
+                  <h3 className="font-semibold text-primary">
                     Review #{record.id}
                   </h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400 mt-2">TX Hash:</p>
-                  <code className="text-xs bg-slate-100 dark:bg-slate-700 p-2 rounded block mt-1 break-all text-slate-800 dark:text-slate-200">
+                  <p className="text-sm text-secondary mt-2">TX Hash:</p>
+                  <code className="text-xs bg-surface p-2 rounded block mt-1 break-all text-default font-mono">
                     {record.blockchain_tx || `0x${Math.random().toString(16).slice(2)}`}
                   </code>
                 </div>
-                <span className="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full dark:bg-green-900 dark:text-green-100">
+                <span className="inline-block px-3 py-1 bg-semantic-status-success/10 text-semantic-status-success text-xs font-semibold rounded-full">
                   Confirmed
                 </span>
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-3">
+              <p className="text-xs text-muted mt-3">
                 {new Date(record.created_at).toLocaleString()}
               </p>
             </div>

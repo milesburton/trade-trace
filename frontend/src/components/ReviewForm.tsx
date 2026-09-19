@@ -66,18 +66,18 @@ export function ReviewForm() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white rounded-lg shadow p-6 dark:bg-slate-800">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6">Submit a Review</h2>
+      <div className="bg-panel rounded border border-divider p-6">
+        <h2 className="text-2xl font-bold text-strong mb-6">Submit a Review</h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+            <label className="block text-sm font-semibold text-primary mb-2">
               Tradesman
             </label>
             <select
               value={formData.tradesman_id}
               onChange={(e) => setFormData({ ...formData, tradesman_id: e.target.value })}
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+              className="w-full px-4 py-2 border border-divider rounded bg-surface text-primary focus:outline-none focus:ring-2 focus:ring-semantic-up"
               required
             >
               <option value="">Select a tradesman...</option>
@@ -90,7 +90,7 @@ export function ReviewForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+            <label className="block text-sm font-semibold text-primary mb-2">
               Your Name
             </label>
             <input
@@ -98,19 +98,19 @@ export function ReviewForm() {
               value={formData.reviewer_name}
               onChange={(e) => setFormData({ ...formData, reviewer_name: e.target.value })}
               placeholder="Your name"
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+              className="w-full px-4 py-2 border border-divider rounded bg-surface text-primary placeholder-muted focus:outline-none focus:ring-2 focus:ring-semantic-up"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+            <label className="block text-sm font-semibold text-primary mb-2">
               Rating
             </label>
             <select
               value={formData.rating}
               onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
-              className="px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+              className="px-4 py-2 border border-divider rounded bg-surface text-primary focus:outline-none focus:ring-2 focus:ring-semantic-up"
               required
             >
               <option value="">Select rating...</option>
@@ -123,7 +123,7 @@ export function ReviewForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+            <label className="block text-sm font-semibold text-primary mb-2">
               Review
             </label>
             <textarea
@@ -131,17 +131,17 @@ export function ReviewForm() {
               onChange={(e) => setFormData({ ...formData, review_text: e.target.value })}
               placeholder="Share your experience..."
               rows={5}
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+              className="w-full px-4 py-2 border border-divider rounded bg-surface text-primary placeholder-muted focus:outline-none focus:ring-2 focus:ring-semantic-up"
               required
             />
           </div>
 
           {submitStatus.type && (
             <div
-              className={`p-4 rounded-lg ${
+              className={`p-4 rounded ${
                 submitStatus.type === 'success'
-                  ? 'bg-green-50 text-green-800 dark:bg-green-900 dark:text-green-100'
-                  : 'bg-red-50 text-red-800 dark:bg-red-900 dark:text-red-100'
+                  ? 'bg-semantic-status-success/10 text-semantic-status-success'
+                  : 'bg-semantic-status-critical/10 text-semantic-status-critical'
               }`}
             >
               {submitStatus.message}
@@ -151,7 +151,7 @@ export function ReviewForm() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 dark:bg-blue-500 dark:hover:bg-blue-600"
+            className="w-full px-6 py-3 bg-semantic-up text-strong font-semibold rounded hover:bg-semantic-up-dark transition-colors disabled:opacity-50"
           >
             {isLoading ? 'Submitting...' : 'Submit Review'}
           </button>
