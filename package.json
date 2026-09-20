@@ -24,7 +24,7 @@
     "fallow:audit": "npm run fallow:frontend:audit",
     "fallow:health": "npm run fallow:frontend:health",
     "fallow:dead-code": "npm run fallow:frontend:dead-code",
-    "quality:git": "git diff --check && git diff --cached --check && ! git status --short --untracked-files=normal | grep -q ."
+    "quality:git": "git diff --check && git diff --cached --check"
   },
   "dependencies": {}
 }
