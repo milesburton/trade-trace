@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000"
 
 interface ReviewPayload {
   tradesman_id: string
@@ -12,24 +12,24 @@ interface AuthResponse {
 }
 
 export const apiClient = {
-  token: localStorage.getItem('auth_token') || '',
+  token: localStorage.getItem("auth_token") || "",
 
   setToken(token: string) {
     this.token = token
-    localStorage.setItem('auth_token', token)
+    localStorage.setItem("auth_token", token)
   },
 
   getHeaders() {
     return {
-      'Content-Type': 'application/json',
-      ...(this.token && { 'Authorization': `Bearer ${this.token}` }),
+      "Content-Type": "application/json",
+      ...(this.token && { Authorization: `Bearer ${this.token}` }),
     }
   },
 
   async register(email: string, password: string, fullName?: string): Promise<AuthResponse> {
     const res = await fetch(`${API_URL}/api/auth/register`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, fullName }),
     })
     const data = await res.json()
@@ -39,8 +39,8 @@ export const apiClient = {
 
   async login(email: string, password: string): Promise<AuthResponse> {
     const res = await fetch(`${API_URL}/api/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     })
     const data = await res.json()
@@ -71,22 +71,25 @@ export const apiClient = {
     phone?: string
   }) {
     const res = await fetch(`${API_URL}/api/tradesmen`, {
-      method: 'POST',
+      method: "POST",
       headers: this.getHeaders(),
       body: JSON.stringify(data),
     })
     return res.json()
   },
 
-  async updateTradesman(id: string, data: {
-    name?: string
-    description?: string
-    location?: string
-    contactEmail?: string
-    phone?: string
-  }) {
+  async updateTradesman(
+    id: string,
+    data: {
+      name?: string
+      description?: string
+      location?: string
+      contactEmail?: string
+      phone?: string
+    },
+  ) {
     const res = await fetch(`${API_URL}/api/tradesmen/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: this.getHeaders(),
       body: JSON.stringify(data),
     })
@@ -102,7 +105,7 @@ export const apiClient = {
 
   async submitReview(data: ReviewPayload) {
     const res = await fetch(`${API_URL}/api/reviews`, {
-      method: 'POST',
+      method: "POST",
       headers: this.getHeaders(),
       body: JSON.stringify(data),
     })
@@ -111,7 +114,7 @@ export const apiClient = {
 
   async updateReview(id: string, data: { rating?: number; comment?: string }) {
     const res = await fetch(`${API_URL}/api/reviews/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: this.getHeaders(),
       body: JSON.stringify(data),
     })
@@ -120,7 +123,7 @@ export const apiClient = {
 
   async deleteReview(id: string) {
     const res = await fetch(`${API_URL}/api/reviews/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: this.getHeaders(),
     })
     return res.json()

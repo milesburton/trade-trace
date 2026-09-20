@@ -120,22 +120,80 @@ html:not([data-theme="high-contrast"]) #root::before {
 
 @layer base {
   body {
-    @apply bg-gray-950 text-gray-100 font-mono;
+    @apply bg-page text-primary font-mono;
     -webkit-font-smoothing: antialiased;
   }
 
+  h1 {
+    @apply text-strong;
+  }
+
+  h2 {
+    @apply text-strong;
+  }
+
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-gray-900;
+    @apply bg-surface;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-600 rounded;
+    @apply bg-subtle rounded-full;
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-500;
+    @apply bg-muted;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-panel rounded-lg border border-divider p-6 transition-all duration-200;
+  }
+
+  .card:hover {
+    @apply border-secondary shadow-lg;
+  }
+
+  .card-elevated {
+    @apply bg-panel rounded-lg border border-divider p-6 shadow-lg;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-lg font-semibold transition-all duration-200 disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-semantic-up text-strong hover:bg-semantic-up-dark;
+  }
+
+  .btn-secondary {
+    @apply btn bg-panel border border-divider text-primary hover:bg-surface;
+  }
+
+  .input-base {
+    @apply px-4 py-2 rounded-lg border border-divider bg-surface text-primary placeholder-muted focus:outline-none focus:ring-2 focus:ring-semantic-up/50 transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-success {
+    @apply badge bg-semantic-status-success/10 text-semantic-status-success;
+  }
+
+  .badge-info {
+    @apply badge bg-semantic-status-info/10 text-semantic-status-info;
+  }
+
+  .badge-warning {
+    @apply badge bg-semantic-status-warning/10 text-semantic-status-warning;
+  }
+
+  .badge-critical {
+    @apply badge bg-semantic-status-critical/10 text-semantic-status-critical;
   }
 }
 

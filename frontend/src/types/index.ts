@@ -22,7 +22,7 @@ export interface Review {
 export interface GraphNode {
   id: string
   name: string
-  type: 'trader' | 'reviewer'
+  type: "trader" | "reviewer"
 }
 
 export interface GraphEdge {

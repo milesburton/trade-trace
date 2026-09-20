@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import { Tradesman, Graph } from '../types'
-import { apiClient } from '../api/client'
+import { useEffect, useState } from "react"
+import { apiClient } from "../api/client"
+import type { Graph, Tradesman } from "../types"
 
 export function RelationshipsGraph() {
   const [tradesmen, setTradesmen] = useState<Tradesman[]>([])
-  const [selectedId, setSelectedId] = useState('')
+  const [selectedId, setSelectedId] = useState("")
   const [graph, setGraph] = useState<Graph | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -21,7 +21,7 @@ export function RelationshipsGraph() {
         loadGraph(data[0].id)
       }
     } catch (error) {
-      console.error('Error loading tradesmen:', error)
+      console.error("Error loading tradesmen:", error)
     }
   }
 
@@ -31,7 +31,7 @@ export function RelationshipsGraph() {
       const data = await apiClient.getGraph(tradesman_id)
       setGraph(data)
     } catch (error) {
-      console.error('Error loading graph:', error)
+      console.error("Error loading graph:", error)
     } finally {
       setIsLoading(false)
     }
@@ -48,9 +48,7 @@ export function RelationshipsGraph() {
       <h2 className="text-2xl font-bold text-strong">Relationship Graph</h2>
 
       <div>
-        <label className="block text-sm font-semibold text-primary mb-2">
-          Select Tradesman
-        </label>
+        <label className="block text-sm font-semibold text-primary mb-2">Select Tradesman</label>
         <select
           value={selectedId}
           onChange={handleSelectChange}
@@ -77,9 +75,7 @@ export function RelationshipsGraph() {
               <div className="text-3xl font-bold text-semantic-up">{graph.nodes.length}</div>
             </div>
             <div className="bg-panel rounded border border-divider p-4">
-              <div className="text-sm font-semibold text-label">
-                Connections
-              </div>
+              <div className="text-sm font-semibold text-label">Connections</div>
               <div className="text-3xl font-bold text-semantic-maker">{graph.edges.length}</div>
             </div>
           </div>
@@ -91,10 +87,13 @@ export function RelationshipsGraph() {
             </h3>
             <div className="space-y-2">
               {graph.nodes.map((node) => (
-                <div key={node.id} className="flex items-center space-x-3 p-3 rounded bg-surface border border-divider">
+                <div
+                  key={node.id}
+                  className="flex items-center space-x-3 p-3 rounded bg-surface border border-divider"
+                >
                   <span
                     className={`w-3 h-3 rounded-full ${
-                      node.type === 'trader' ? 'bg-semantic-up' : 'bg-semantic-maker'
+                      node.type === "trader" ? "bg-semantic-up" : "bg-semantic-maker"
                     }`}
                   />
                   <span className="text-default">
@@ -115,7 +114,10 @@ export function RelationshipsGraph() {
             ) : (
               <div className="space-y-2">
                 {graph.edges.map((edge, idx) => (
-                  <div key={idx} className="flex items-center space-x-2 p-3 rounded bg-surface border border-divider">
+                  <div
+                    key={idx}
+                    className="flex items-center space-x-2 p-3 rounded bg-surface border border-divider"
+                  >
                     <span className="text-muted">→</span>
                     <span className="text-default">{edge.type}</span>
                   </div>
