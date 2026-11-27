@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="min-h-screen bg-page">
       <Header />
-      <Navigation tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
+      <Navigation tabs={tabs} activeTab={activeTab} onTabChange={(name) => setActiveTab(name as TabName)} />
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-8">
